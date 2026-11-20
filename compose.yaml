@@ -3,6 +3,9 @@ services:
   api:
     build: .
     container_name: ai-support-engine
+    environment:
+      LLAMA_BASE_URL: ${LLAMA_BASE_URL:-http://host.docker.internal:8081}
+      LLAMA_MODEL: ${LLAMA_MODEL:-qwen2.5-1.5b}
     ports:
       - "8000:8000"
     restart: unless-stopped
